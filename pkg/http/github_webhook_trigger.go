@@ -69,7 +69,7 @@ func (s *TriggerServer) githubHandler(resp http.ResponseWriter, req *http.Reques
 	var imageName, imageTag string
 
 	switch hookEvent {
-	case "package_v2":
+	case "package_v2", "package":
 		payload := new(githubPackageV2Webhook)
 		if err := json.NewDecoder(req.Body).Decode(payload); err != nil {
 			log.WithFields(log.Fields{
